@@ -1,0 +1,9 @@
+import yfinance as yf
+
+# 데이터 다운로드 (2016년부터 현재까지)
+vix_data = yf.download("^VIX", start="2016-01-01")
+nasdaq_data = yf.download("^NDX", start="2016-01-01")
+
+# 엑셀 파일로 저장
+vix_data.to_csv("vix_10yrs.csv")
+nasdaq_data.to_csv("nasdaq100_10yrs.csv")
