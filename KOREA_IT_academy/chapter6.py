@@ -1,13 +1,12 @@
-class Calculator: # class 선언 대문자로 이름 시작 이후 :
-    def __init__(self): # 생성자 함수
-        self.result = 0 # 변수 초기화
+class Calculator:
+    def __init__(self):
+        self.result = 0
 
     def add(self, num):
-        self.result += num #함수 정의
-        return self.result #return 값 반환
+        self.result += num
+        return self.result
 
-cal1 = Calculator()
-# 생성인데, cal1은 Calculator로 만든 저장소에 입력된 변수를 가리킨다는 의미다.
+cal1 = Calculator() # 생성
 cal2 = Calculator()
 print(cal1.add(10))
 print(cal1.add(20))
@@ -32,14 +31,14 @@ print(cal2.add(30))
 
 '''
 
-class MegaCoffee(): # class 선언
+class MegaCoffee:
     def __init__(self):
         self.name = None
         self.count = 0
         self.totalMoney = 0
 
-    def makeMega(self, name):
-        self.name = name
+    def makeMega(self, inputName):
+        self.name = inputName
 
     def countSale(self, count, totalMoney):
         self.count += count
@@ -88,21 +87,16 @@ print(mega2.name)
 #     if select == "1":
 #         name = input("지점명: ")
 #         megaCoffee = MegaCoffee()
-#         #megaCoffee는 MegaCoffee로 만들어진 주소에 저장된 변수를 말한다.
 #         megaCoffee.makeMega(name)
-#         #megaCoffee라는 object에 makeMega로 만든 name 값을 담는다.
-#         #이 때, name은 그저 인스턴스에 담긴 하나의 변수일 뿐,
-#         # dictionary나 list의 형태로 저장되는 것이 아니다.
 #         megaList.append(megaCoffee)
-#         # 여기서 인스턴스 자체를 하나의 list로 만든다.
 #     elif select == "2":
 #         name = input("지점명: ")
 #         count = int(input("갯수: "))
-#         totalMoney = int(input("금액: "))
+#         money = int(input("금액: "))
 #         flag = False
-#         for i in megaList: # 이 때의 i는 megaList에 담긴 각각의 인스턴스를 의미한다.
+#         for i in megaList:
 #             if i.name == name:
-#                 i.countSale(count, totalMoney)
+#                 i.countSale(count, money)
 #                 print("저장 완료")
 #                 flag = True
 #         if not flag:
@@ -118,16 +112,76 @@ print(mega2.name)
 #             print("지점이 존재하지 않습니다.")
 
 class MyInfo:
-    def __init__(self, name, age, height, weight):
+    def __init__(self, name, age, hegiht, weight):
         self.name = name
         self.age = age
-        self.height = height
+        self.height = hegiht
         self.weight = weight
 
 myInfo1 = MyInfo("gildong", 18, 180, 70) # 생성
 print(myInfo1.name)
 print(myInfo1.weight)
 
+
+class Animal:
+    def __init__(self):
+        print("Animal 생성")
+    def walk(self):
+        print("동물이 걷습니다.")
+
+# class Tiger:
+#     def __init__(self):
+#         pass
+#     def walk(self):
+#         print("동물이 걷습니다.")
+#
+# class Dog:
+#     def __init__(self):
+#         pass
+#     def walk(self):
+#         print("동물이 걷습니다.")
+class Tiger(Animal):
+    pass
+class Dog(Animal):
+    def __init__(self):
+        super().__init__()
+        print("Dog 생성")
+
+    def walk(self): # Overriding -> 재정의
+        print("hi")
+
+    def smile(self):
+        print("강아지가 웃습니다.")
+# animal = Animal()
+# tiger = Tiger()
+dog = Dog()
+# animal.walk()
+# tiger.walk()
+dog.walk()
+dog.smile()
+print(isinstance(dog, Dog))
+print(isinstance(dog, Tiger))
+
+class SignUP:
+    def __init__(self, id, pw, email):
+        self.id = id
+        self.pw = pw
+        self.email = email
+
+    def showInfo(self):
+        print("id:", self.id)
+        print("pw:", self.pw)
+        print("email:", self.email)
+# 화면에서 전달된 정보
+signUpInfo = {
+    "id" : "gildong",
+    "pw" : "1q2w3e4r!!",
+    "email" : "gildong@gmail.com"
+}
+
+newInfo1 = SignUP(signUpInfo["id"], signUpInfo["pw"], signUpInfo["email"])
+
+newInfo1.showInfo()
 
 
 
