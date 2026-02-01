@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import sys, calendar, json, os, random
 from PyQt6.QtWidgets import *
 from PyQt6.QtCore import *
@@ -244,7 +244,17 @@ class DutyAppV97(QMainWindow):
         pnt.end()
 
 if __name__ == "__main__":
-=======
+    app = QApplication(sys.argv)
+    # 병원 환경에 어울리는 깔끔한 Fusion 스타일 적용
+    app.setStyle("Fusion") 
+    
+    # 폰트가 깨지지 않도록 기본 폰트 설정 (선택 사항)
+    font = QFont("Malgun Gothic", 9)
+    app.setFont(font)
+    
+    win = DutyAppV97()
+    win.show()
+    sys.exit(app.exec())
 import sys, calendar, json, os, random
 from PyQt6.QtWidgets import *
 from PyQt6.QtCore import *
@@ -490,5 +500,4 @@ class DutyAppV97(QMainWindow):
         pnt.end()
 
 if __name__ == "__main__":
->>>>>>> 4d16b35fa97b7af3588c8ad918749e5735e40ba1
     app = QApplication(sys.argv); app.setStyle("Fusion"); win = DutyAppV97(); win.show(); sys.exit(app.exec())
