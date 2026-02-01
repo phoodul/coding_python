@@ -163,16 +163,80 @@
 # minsu.introduce("민수")
 # print(minsu.name)
 
-class Book: 
+# class Book: 
 
-    def set_info(self, title, author):
-        self.title = title
-        self.author = author
-        print(f"책 제목: {self.title}")
-        print(f"책 저자: {self.author}")
+#     def set_info(self, title, author):
+#         self.title = title
+#         self.author = author
+#         print(f"책 제목: {self.title}")
+#         print(f"책 저자: {self.author}")
 
-book1 = Book()
-book2 = Book()
+# book1 = Book()
+# book2 = Book()
 
-book1.set_info('어린왕자', '생텍쥐페리')
-book2.set_info('꽃을 보듯 너를 본다', '나태주')
+# book1.set_info('어린왕자', '생텍쥐페리')
+# book2.set_info('꽃을 보듯 너를 본다', '나태주')
+
+# from collections import namedtuple
+# from collections import defaultdict
+# Grade = namedtuple('Grade', ('score', 'weight'))
+# class Subject:
+#     def __init__(self):
+#         self._grade = []
+
+#     def report_grade(self, score, weight):
+#             self._grade.append(Grade(score, weight))
+
+#     def average_grade(self):
+#         total, total_weight = 0, 0
+#         for grade in self._grade:
+#             total += grade.score * grade.weight
+#             total_weight += grade.weight
+#         return total / total_weight
+    
+# class Student:
+#     def __init__(self):
+#         self._subjects = defaultdict(Subject)
+#     def get_subject(self, name):
+#         return self._subjects[name]
+    
+#     def average_grade(self):
+#         total, count = 0, 0
+#         for subject in self._subjects.values():
+#             total += subject.average_grade()
+#             count += 1
+#         return total / count
+    
+# class GradeBook:
+#     def __init__(self):
+#         self._students = defaultdict(Student)
+#     def get_student(self, name):
+#         return self._students[name]
+    
+import json
+
+# 1. 기능을 제공할 믹스인 클래스 정의
+class JsonMixin:
+    def to_json(self):
+        # 객체의 어트리뷰트(__dict__)를 JSON 문자열로 변환
+        return json.dumps(self.__dict__)
+
+# 2. 일반 클래스에 믹스인을 조립
+class Student(JsonMixin):  # 믹스인을 상속받음
+    def __init__(self, name, grade):
+        self.name = name
+        self.grade = grade
+
+class Point(JsonMixin):    # 전혀 다른 클래스에도 조립 가능
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+# 3. 사용
+s = Student("철수", 3)
+p = Point(10, 20)
+
+print(s.to_json())  # {"name": "\ucd2c\uc218", "grade": 3}
+print(p.rstrip().to_json()) if hasattr(p, 'rstrip') else print(p.to_json()) 
+# {"x": 10, "y": 20}
+    

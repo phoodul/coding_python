@@ -93,7 +93,3 @@ def varTest(k):
 
 print(varTest(a))
 print(a)
-
-
-
-
