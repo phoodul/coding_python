@@ -21,11 +21,40 @@
 #     sum += list_num[_]
 # print(sum)
 
-S = input()
-alphabet_list = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-for i in alphabet_list:
-    if i in S:
-        print(S.index(i), end=' ')
-    else:
-        print(-1, end=' ')
-        
+# S = input()
+# alphabet_list = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+# for i in alphabet_list:
+#     if i in S:
+#         print(S.index(i), end=' ')
+#     else:
+#         print(-1, end=' ')
+
+# T = int(input())
+# for _ in range(T):
+#     A, B = input().split()
+#     a = int(A)
+#     list_char = []
+#     for i in B:
+#         list_char.append(i * a)
+#     print(''.join(list_char))
+
+# sentence = input()
+# count = 0
+# if len(sentence) < 3:
+#     if all(sentence[i] == ' ' for i in range(len(sentence))):
+#         word_count = 0
+#     else:
+#         word_count = 1
+# else:
+#     for i in range(len(sentence)-2):
+#         if (sentence[i] != ' ') and (sentence[i+1] == ' ') and (sentence[i+2] != ' '):
+#             count += 1
+#     word_count = count + 1
+# print(word_count)
+
+# 정답
+sentence = input().strip()
+if sentence == "":
+    print(0)
+else:
+    print(len(sentence.split()))
