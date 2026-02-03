@@ -52,9 +52,48 @@
 #     word_count = count + 1
 # print(word_count)
 
-# 정답
-sentence = input().strip()
-if sentence == "":
-    print(0)
-else:
-    print(len(sentence.split()))
+# # 정답
+# sentence = input().strip()
+# if sentence == "":
+#     print(0)
+# else:
+#     print(len(sentence.split()))
+
+# A, B = input().split()
+# list_A = [x for x in A]
+# list_B = [x for x in B]
+# list_a = [list_A[2], list_A[1], list_A[0]]
+# list_b = [list_B[2], list_B[1], list_B[0]]
+# num_A = ''.join(list_a)
+# num_B = ''.join(list_b)
+# if num_A > num_B:
+#     print(num_A)
+# else:
+#     print(num_B)
+
+# # 정답
+# a, b = input().split()
+# # 문자열 슬라이싱으로 뒤집기: '734' -> '437'
+# a = int(a[::-1])
+# b = int(b[::-1])
+
+# # 더 큰 수 출력
+# print(max(a, b))
+
+word = input()
+num_dict = {
+    ('A', 'B', 'C') : 3,
+    ('D', 'E', 'F') : 4,
+    ('G', 'H', 'I') : 5,
+    ('J', 'K', 'L') : 6,
+    ('M', 'N', 'O') : 7,
+    ('P', 'Q', 'R', 'S') : 8,
+    ('T', 'U', 'V') : 9,
+    ('W', 'X', 'Y', 'Z') : 10
+}
+num = 0
+for char in word:
+    for key in num_dict.keys():
+        if char in key:
+            num += num_dict[key]
+print(num)
